@@ -12,7 +12,7 @@ def home():
 class dadosRequest(BaseModel):
     link: str
     nome: str
-    telefone: str
+    email: str
 
 # cria os bots
 @app.post("/bots")
@@ -20,6 +20,7 @@ async def criar_bots(dados: dadosRequest):
     resultado = await controlar_bots(
         dados.link,
         dados.nome,
-        dados.telefone
+        dados.email
     )
     return {"resultado": resultado}
+
