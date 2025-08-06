@@ -1,5 +1,4 @@
-#Monitor de Preços - Python
-##Projeto de automação para monitoramento de preços em e-commerces
+
 ---
 ### 📂**Estrutura do Projeto**
 ```
@@ -81,21 +80,14 @@ uvicorn main:app --reload
 ```
 ---
 ### **🧠 Dificuldades Encontradas**
-1. Primeiro Projeto em Python
-Aprendizado simultâneo de sintaxe, bibliotecas e boas práticas.
+1. Primeiro Projeto em Python, aprendizado simultâneo de sintaxe, bibliotecas e boas práticas, dificuldade com tipos e estruturas de dados inicialmente.
 
-Dificuldade com tipos e estruturas de dados inicialmente.
+2. Mudanças de Regra de Negócio, versão inicial permitia múltiplos links por usuário, mas a complexidade de gerenciamento fez simplificar para 1 link.
 
-2. Mudanças de Regra de Negócio
-Versão inicial permitia múltiplos links por usuário, mas a complexidade de gerenciamento fez simplificar para 1 link.
-
-3. Scraping Frágil
-Problema: Lojas alteram classes HTML frequentemente (ex: Amazon mudou a-price-whole 3x em 6 meses).
-
-Solução: Implementação de fallback com Selenium para casos críticos.
-
-4. Ausência de Banco de Dados
-Decisão proposital para simplificar, mas limita persistência após reinícios.
+3. Scraping Frágil: Lojas alteram classes HTML frequentemente (ex: Amazon mudou a-price-whole 3x em 6 meses).
+  **Solução: Implementação de fallback com Selenium para casos críticos.**
+   
+4. Ausência de Banco de Dados, decisão proposital para simplificar, mas limita persistência após reinícios.
 
 ### **🛑 Caso os Bots Parem de Funcionar**
 Os bots dependem da estrutura HTML das lojas. Se pararem:
