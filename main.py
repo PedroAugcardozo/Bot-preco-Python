@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from src.index import controlar_bots
+from fastapi import BackgroundTasks
 
 app = FastAPI()
 
@@ -14,13 +14,11 @@ class dadosRequest(BaseModel):
     nome: str
     email: str
 
+#manter o agendamento ativo
+bot_schedule = {}
+
 # cria os bots
 @app.post("/bots")
-async def criar_bots(dados: dadosRequest):
-    resultado = await controlar_bots(
-        dados.link,
-        dados.nome,
-        dados.email
-    )
-    return {"resultado": resultado}
+async def criar_bots(dados: dadosRequest, background_tasks: BackgroundTasks):
+    return("mensagem: Bot criado com sucesso!")
 

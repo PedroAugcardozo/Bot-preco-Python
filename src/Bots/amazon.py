@@ -1,14 +1,17 @@
-
+from selenium.webdriver.chrome.options import Options
 def pegarPreco(url):
     from selenium import webdriver
     navegador = webdriver.Chrome()
     navegador.get(url)
-    navegador.maximize_window()
+    options = Options()
+    options.add_argument("--headless")            # Oculta a janela
+    options.add_argument("--disable-gpu")         # Evita problemas gráficos
+    options.add_argument("--window-size=1920,1080")  # Tamanho da tela virtual
+    options.add_argument("--no-sandbox")          # Evita erros em alguns ambientes Linux
+    options.add_argument("--disable-dev-shm-usage")
     try:
         preco = navegador.find_element("class name", "slot-price").text
         return preco
     except Exception as e:
         print(f"Erro ao pegar o preço: {e}")
         return e
-        
-print(pegarPreco('https://www.amazon.com.br/Sanduicheira-El%C3%A9trica-Cadence-Click-127V/dp/B0CDJ4L7CZ/ref=zg_bs_c_kitchen_d_sccl_1/145-0320103-4806324'))
