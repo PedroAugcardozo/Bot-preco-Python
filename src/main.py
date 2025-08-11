@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi import BackgroundTasks
+from core.schedule import controlar_tempo
 
 app = FastAPI()
 
@@ -14,11 +15,7 @@ class dadosRequest(BaseModel):
     nome: str
     email: str
 
-#manter o agendamento ativo
-bot_schedule = {}
-
 # cria os bots
 @app.post("/bots")
 async def criar_bots(dados: dadosRequest, background_tasks: BackgroundTasks):
     return("mensagem: Bot criado com sucesso!")
-
