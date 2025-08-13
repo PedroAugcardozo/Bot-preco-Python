@@ -18,4 +18,6 @@ class dadosRequest(BaseModel):
 # cria os bots
 @app.post("/bots")
 async def criar_bots(dados: dadosRequest, background_tasks: BackgroundTasks):
+    background_tasks.add_task(controlar_tempo, dados.link, dados.nome, dados.email)
+    print(f"Bot criado para o produto {dados.nome} com link {dados.link}")
     return("mensagem: Bot criado com sucesso!")

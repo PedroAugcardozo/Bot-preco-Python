@@ -10,7 +10,7 @@ def pegarPreco(url):
     options.add_argument("--no-sandbox")          # Evita erros em alguns ambientes Linux
     options.add_argument("--disable-dev-shm-usage")
     try:
-        preco = navegador.find_element("class name", "slot-price").text
+        preco = navegador.find_element("class name", "a-price-whole").text
         return preco
     except Exception as e:
         print(f"Erro ao pegar o preço: {e}")

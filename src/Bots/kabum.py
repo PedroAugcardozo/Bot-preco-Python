@@ -1,4 +1,5 @@
 from selenium.webdriver.chrome.options import Options
+import re
 
 def pegarPreco(url):
     from selenium import webdriver
@@ -12,7 +13,9 @@ def pegarPreco(url):
     options.add_argument("--disable-dev-shm-usage")
     try:
         preco = navegador.find_element("class name","text-4xl text-secondary-500 font-bold transition-all duration-500").text
-        return preco
+        limpo = re.sub(r"[^0-9.,]", "",preco)
+        preco_formatado = int(limpo.replace(',', ''))  # Converte o preço para inteiro
+        return preco_formatado
     except Exception as e:
         print(f"Erro ao pegar o preço: {e}")
         return e

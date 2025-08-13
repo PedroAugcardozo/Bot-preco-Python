@@ -25,10 +25,7 @@ class bot_controlador:
             self.Primeiro_preco = False
             self.preco_original = self.precoAtual
         
-        if(self.preco_atual < self.preco_original):
-            enviarEmail(self.Destinatario, self.nome, self.link)
-            print(f"Preço do produto {self.nome} caiu para {self.preco_atual}. Email enviado para {self.email}.")
-            return f"Status 200: Preço do produto {self.nome} caiu para {self.preco_atual}. Email enviado para {self.email}."
+
 
     
     @property
