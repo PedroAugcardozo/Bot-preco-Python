@@ -31,6 +31,9 @@ Cada usuário pode monitorar apenas 1 link por vez (diferente da versão inicial
 O monitoramento encerra automaticamente após a primeira queda de preço.
 
 ### ⚙️ Como Funciona
+
+![Fluxo de Funcionamento](docs/fluxo-bot.png)
+
 Recebimento do Link:
 
 - O usuário envia um link via API (POST /monitorar).
@@ -46,6 +49,7 @@ Monitoramento Contínuo:
 Notificação:
 
 Se o preço baixar, um e-mail é enviado e o monitoramento é interrompido.
+
 ---
 ### **🛠 Tecnologias Utilizadas**
 **Tecnologia	Uso	Instalação**
@@ -56,7 +60,6 @@ Se o preço baixar, um e-mail é enviado e o monitoramento é interrompido.
 - SMTPLib	Envio de e-mails	Nativo no Python
 * Selenium é usado como fallback quando Beautiful Soup não consegue extrair dados.
 
-![Fluxo de Funcionamento](docs/fluxo-bot.png)
 ---
 ### **🚀 Como Executar**
 > Clone o repositório:
