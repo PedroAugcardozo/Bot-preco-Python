@@ -1,6 +1,11 @@
 
 ---
 ### 📂**Estrutura do Projeto**
+
+## 📌 Sobre o Projeto  
+Este é um bot desenvolvido em Python que monitora o preço de produtos em lojas específicas a partir de um link fornecido pelo usuário. Utilizando Selenium para automação e scraping, ele verifica periodicamente o valor e, caso haja queda, envia uma notificação por e-mail informando o novo preço.  
+
+O projeto nasceu do meu interesse por automação e evoluiu de um simples teste com Selenium para uma aplicação funcional.
 ```
 src/  
 ├── Bots/                  # Módulos de scraping para cada loja  
@@ -9,8 +14,7 @@ src/
 │   └── mercadolivre.py    # Bot para Mercado Livre  
 ├── core/                  # Lógica compartilhada  
 │   ├── email.py           # Envio de notificações  
-│   └── schedule.py        # Agendamento de verificações  
-├── database.py            # Armazenamento temporário (sem DB persistente)  
+│   └── schedule.py        # Agendamento de verificações   
 ├── index.py               # Controle principal dos bots  
 ├── main.py                # API FastAPI  
 .env                       # Variáveis de ambiente (e-mail)  
@@ -51,6 +55,8 @@ Se o preço baixar, um e-mail é enviado e o monitoramento é interrompido.
 - Selenium	Scraping dinâmico (JavaScript*)	pip install selenium
 - SMTPLib	Envio de e-mails	Nativo no Python
 * Selenium é usado como fallback quando Beautiful Soup não consegue extrair dados.
+
+![Fluxo de Funcionamento](docs/fluxo-bot.png)
 ---
 ### **🚀 Como Executar**
 > Clone o repositório:
